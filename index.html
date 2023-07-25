@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+</head>
+<body>
+  <h1>Contact Us</h1>
+  <p>If you have any inquiries or would like to get in touch, please fill out the form below:</p>
+
+  <form id="contactForm" action="contact.php" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+
+  <script>
+    // Client-side form validation
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        alert('Please fill out all fields.');
+        return;
+      }
+
+      // Submit the form if all fields are valid
+      contactForm.submit();
+    });
+  </script>
+</body>
+</html>
